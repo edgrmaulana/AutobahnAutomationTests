@@ -12,10 +12,17 @@ Feature: Automation UI Testing for Autobahn Signup Page
     And  User click on sign up button
     Then User wait for 5 seconds
     Then User tried to input first name as '<firstName>'
-    Then User tried to input last name as '<lastName>'
-    Then User tried to input
+    And  User tried to input last name as '<lastName>'
+    And  User tried to to choose industry as '<industry>'
+    And  User tried to choose phone number country to '<country>'
+    And  User tried to input phone number as '<phoneNumber>'
+    Then User go to temporary email provider page and refresh the email
+    Then User click on received verification email
+    And  User click on verify account button
+    Then User go to Autobahn homepage
+    And  User should be successfully registered
 
 
     Examples:
-      | emailProvider  | email    | password  | firstName     | promoType   | reason              |
-      | default        | default  | default   | Edgar Maulana | none        | user without promo  |
+      | emailProvider  | email    | password  | firstName     | industry   | country              | phoneNumber   |
+      | default        | default  | default   | Edgar Maulana | none        | user without promo  |               |

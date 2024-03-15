@@ -82,4 +82,8 @@ public class AutobahnSignupSteps {
     public void userTriedToInputFirstNameAsFirstName(String value) {
 
     }
+
+    @Then("User tried to input last name as {string}")
+    public void userTriedToInputLastNameAsLastName(String value) {
+    }
 }
