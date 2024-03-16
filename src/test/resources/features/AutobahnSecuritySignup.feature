@@ -3,7 +3,7 @@
 Feature: Automation UI Testing for Autobahn Signup Page
 
   @Positive
-  Scenario Outline: Verify Autobahn Signup page with '<reason>'
+  Scenario Outline: Verify Autobahn Signup page should be working normally
     When User get email from temporary email provider in '<emailProvider>'
     And  User copying email from temporary email page
     Then User tried to open Autobahn Signup Page
@@ -30,3 +30,24 @@ Feature: Automation UI Testing for Autobahn Signup Page
     Examples:
       | emailProvider  | email    | password  | firstName  | lastName    | industry              | country    | phoneNumber   |
       | default        | default  | default   | random     | random      | Technology Services   | Indonesia  | random        |
+
+    @Negative @asd
+    Scenario Outline: Verify Autobahn Signup page with user '<email>' should be failed
+      When User get email from temporary email provider in '<emailProvider>'
+      And  User copying email from temporary email page
+      Then User tried to open Autobahn Signup Page
+      Then User tried to input user email as '<email>'
+      And  User tried to input user password as '<password>'
+      And  User click on sign up button
+      Then User wait for 5 seconds
+      Then User error notification should be showing up as '<errorNotification>'
+
+      Examples:
+        | emailProvider | email    | password  | errorNotification                            |
+        | default       | existing | default   | There was an error creating your account.    |
+        | default       | default  | Qwerty123 | Weak                                         |
+
+  #incorrect phone format
+  #empty firstname
+  #empty last name
+  #empty both

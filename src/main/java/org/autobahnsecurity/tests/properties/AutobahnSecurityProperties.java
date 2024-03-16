@@ -15,12 +15,4 @@ public class AutobahnSecurityProperties {
         String properties = String.format("autobahn.%s", value);
         return prop.getProperty(properties);
     }
-
-    public static void main(String[] args) {
-        Faker faker = new Faker();
-        String name = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        System.out.println(name);
-        System.out.println(lastName);
-    }
 }

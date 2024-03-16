@@ -54,8 +54,9 @@ public class AutobahnSignupSteps {
     }
 
     @And("User tried to input user email as {string}")
-    public void userTriedToInputUserEmailAsEmail(String value) {
+    public void userTriedToInputUserEmailAsEmail(String value) throws IOException {
         value = value.equalsIgnoreCase("default") ? autobahnData.getUserEmail() : value;
+        value = value.equalsIgnoreCase("existing") ? autobahnProperties.getProperties("existingEmail") : value;
         autobahnPage.inputTextToUsername(value);
     }
 
@@ -68,7 +69,9 @@ public class AutobahnSignupSteps {
 
     @And("User click on sign up button")
     public void userClickOnSignUpButton() {
-        autobahnPage.clickSignUpButton();
+        if (autobahnData.getUserPassword().equalsIgnoreCase("TestingQwerty123!")){
+            autobahnPage.clickSignUpButton();
+        }
     }
 
     @Then("User wait for {int} seconds")
@@ -164,5 +167,17 @@ public class AutobahnSignupSteps {
         if (temporaryEmailPage.getUrl().contains("#google_vignette")){
             temporaryEmailPage.clickOnCloseAds();
         }
+    }
+
+    @Then("User error notification should be showing up as {string}")
+    public void userErrorNotificationShouldBeShowingUpAsErrorNotification(String value) {
+        if (autobahnPage.isWeakPasswordNotificationVisible().equals(true) && value.contains("Weak")){
+            assertThat("Incorrect error message is showing up", autobahnPage.getErrorNotificationWeakPassword(),
+                    containsString(value));
+        } else {
+            assertThat("Incorrect error message is showing up", autobahnPage.getErrorNotificationOnSignup(),
+                    containsString(value));
+        }
+
     }
 }

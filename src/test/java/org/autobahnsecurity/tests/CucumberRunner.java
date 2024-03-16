@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
                 "org.autobahnsecurity.tests.hooks"},
         objectFactory = SerenityObjectFactory.class,
         stepNotifications = true,
-        tags = "@AutobahnSignupPageFeature")
+        tags = "@asd")
 public class CucumberRunner {
 
 }

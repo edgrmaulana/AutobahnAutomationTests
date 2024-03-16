@@ -36,6 +36,12 @@ public class AutobahnSecuritySignupPage extends UIUtility {
     @FindBy(css = "div[id='create-new-account-btn'] p[class='button-text paragraph button-large']")
     WebElementFacade createNewAccountButton;
 
+    @FindBy(css = "label[class='label']")
+    WebElementFacade errorNotificationSignUp;
+
+    @FindBy(css = ".bar-text")
+    WebElementFacade errorFeedbackWeakPassword;
+
     //    --------------- Click Action
 
     public void clickSignUpButton(){
@@ -101,6 +107,14 @@ public class AutobahnSecuritySignupPage extends UIUtility {
         return getTextByWebElementFacade(homepageHeader);
     }
 
+    public String getErrorNotificationOnSignup(){
+        return getTextByWebElementFacade(errorNotificationSignUp);
+    }
+
+    public String getErrorNotificationWeakPassword(){
+        return getTextByWebElementFacade(errorFeedbackWeakPassword);
+    }
+
     //    --------------- Windows Action
 
     public void changeWindowToSelected(String value){
@@ -123,5 +137,9 @@ public class AutobahnSecuritySignupPage extends UIUtility {
 
     public Boolean isJoinAccountElementVisible(){
         return isElementVisibleByWebElementFacade(createNewAccountButton);
+    }
+
+    public Boolean isWeakPasswordNotificationVisible(){
+        return isElementVisibleByWebElementFacade(errorFeedbackWeakPassword);
     }
 }

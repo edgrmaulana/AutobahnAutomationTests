@@ -19,6 +19,8 @@ public class TemporaryEmailPage extends UIUtility {
     @FindBy(xpath = "//span[@dir='auto' and contains(text(),'Close')]")
     WebElementFacade closeAdsButton;
 
+
+
     //    --------------- Click Action
     public void clickOnUserEmail(){
         clickByWebElementFacade(userEmailText);
@@ -32,6 +34,7 @@ public class TemporaryEmailPage extends UIUtility {
         do {
             try{
                 clickByWebElementFacade(refreshButton);
+                System.out.println("Button status is = " + xPath.isClickable());
             } catch (NoSuchElementException error){
                 clickByWebElementFacade(refreshButton);
                 System.out.println("Refreshing Until Verification Email is Showing Up");
