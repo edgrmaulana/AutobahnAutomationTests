@@ -13,4 +13,8 @@ public class CommonUtility extends UIInteractions {
     public void newTab(){
         getDriver().switchTo().newWindow(WindowType.TAB);
     }
+
+    public String getUrl(){
+        return getDriver().getCurrentUrl();
+    }
 }

@@ -16,13 +16,17 @@ Feature: Automation UI Testing for Autobahn Signup Page
     And  User tried to to choose industry as '<industry>'
     And  User tried to choose phone number country to '<country>'
     And  User tried to input phone number as '<phoneNumber>'
-    Then User go to temporary email provider page and refresh the email
-    Then User click on received verification email
+    And  User click on start using autobahn button
+    Then User tried change tabs to 'email' page
+    Then User refresh the page and click on received verification email
+    Then Close ads popup if ads is showing up
     And  User click on verify account button
-    Then User go to Autobahn homepage
-    And  User should be successfully registered
-
+    Then User wait for 10 seconds
+    Then User tried change tabs to 'Autobahn' page
+    Then User wait for 10 seconds
+    Then User should be redirected to 'Autobahn home' page
+    Then User should be successfully registered
 
     Examples:
-      | emailProvider  | email    | password  | firstName     | industry   | country              | phoneNumber   |
-      | default        | default  | default   | Edgar Maulana | none        | user without promo  |               |
+      | emailProvider  | email    | password  | firstName  | lastName    | industry              | country    | phoneNumber   |
+      | default        | default  | default   | random     | random      | Technology Services   | Indonesia  | random        |
