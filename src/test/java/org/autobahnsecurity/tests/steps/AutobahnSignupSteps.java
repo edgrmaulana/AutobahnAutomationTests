@@ -175,9 +175,9 @@ public class AutobahnSignupSteps {
             assertThat("Incorrect error message is showing up", autobahnPage.getErrorNotificationWeakPassword(),
                     containsString(value));
         } else {
-            assertThat("Incorrect error message is showing up", autobahnPage.getErrorNotificationOnSignup(),
+            assertThat("Incorrect error message is showing up", autobahnPage.getErrorNotificationWarning(),
                     containsString(value));
         }
-        System.out.println(autobahnPage.getErrorNotificationOnSignup());
+        System.out.println(autobahnPage.getErrorNotificationWarning());
     }
 }

@@ -47,7 +47,7 @@ Feature: Automation UI Testing for Autobahn Signup Page
         | default       | existing | default   | There was an error creating your account.    | existing account |
         | default       | default  | Qwerty123 | Weak                                         | weak password    |
 
-    @Negative @asd
+    @Negative
     Scenario Outline: Verify Autobahn Signup page with user '<user>' should be failed
       When User get email from temporary email provider in 'default'
       And  User copying email from temporary email page

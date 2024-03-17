@@ -109,7 +109,7 @@ public class AutobahnSecuritySignupPage extends UIUtility {
         return getTextByWebElementFacade(homepageHeader);
     }
 
-    public String getErrorNotificationOnSignup(){
+    public String getErrorNotificationWarning(){
         return getTextByWebElementFacade(errorNotificationWarning);
     }
 
