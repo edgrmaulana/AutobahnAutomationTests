@@ -178,6 +178,6 @@ public class AutobahnSignupSteps {
             assertThat("Incorrect error message is showing up", autobahnPage.getErrorNotificationOnSignup(),
                     containsString(value));
         }
-
+        System.out.println(autobahnPage.getErrorNotificationOnSignup());
     }
 }

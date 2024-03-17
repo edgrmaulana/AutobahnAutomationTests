@@ -37,10 +37,12 @@ public class AutobahnSecuritySignupPage extends UIUtility {
     WebElementFacade createNewAccountButton;
 
     @FindBy(css = "label[class='label']")
-    WebElementFacade errorNotificationSignUp;
+    WebElementFacade errorNotificationWarning;
 
     @FindBy(css = ".bar-text")
     WebElementFacade errorFeedbackWeakPassword;
+
+
 
     //    --------------- Click Action
 
@@ -108,7 +110,7 @@ public class AutobahnSecuritySignupPage extends UIUtility {
     }
 
     public String getErrorNotificationOnSignup(){
-        return getTextByWebElementFacade(errorNotificationSignUp);
+        return getTextByWebElementFacade(errorNotificationWarning);
     }
 
     public String getErrorNotificationWeakPassword(){
